@@ -49,8 +49,8 @@ def h_test(phases, max_harmonic=20):
         fpp =np.exp(-0.4*H)
     return (H, M, fpp)
 
-def h_test_weight(phases, max_harmonic=20,weights=None): #from Rob Archbald
-    """Apply the H test for uniformity on [0,1).
+def h_test_weight(phases, max_harmonic=20,weights=None):
+    """Apply the H test for uniformity on [0,1). with weight of each data points
     The H test is an extension of the Z_m^2 or Rayleigh tests for
     uniformity on the circle. These tests estimate the Fourier coefficients
     of the distribution and compare them with the values predicted for
@@ -66,10 +66,13 @@ def h_test_weight(phases, max_harmonic=20,weights=None): #from Rob Archbald
     ----------    
     Arguments
     ---------
-    events : array-like
-        events should consist of an array of values to be interpreted as
+    phases : array-like
+        phases of events should consist of an array of values to be interpreted as
         values modulo 1. These events will be tested for statistically
         significant deviations from uniformity.
+    max_harmonic=20: the maximum harmonic to be searched
+    weights: default None. The weight of each event.
+    
     Returns
     -------
     H : float
